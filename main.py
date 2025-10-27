@@ -1369,7 +1369,6 @@ def create_deck(deck, meaning, suit):
   for i in suit:
     for j in meaning:
       deck.append(i + j)
-  print(deck)
 
 def fill_cards_players(player, deck, count_cards):
   if len(deck) > 0:
