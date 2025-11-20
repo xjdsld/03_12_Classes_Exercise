@@ -2504,7 +2504,7 @@
 # #             print('Division by zero is not allowed!') 
 
 
-import random
+import secrets
 
 
 welcome_word = "Welcome to the random password generator. You can select the lenght and the type of charachers used. If you want to use only symbols for your password - press 'S', if you want to use only letters - press 'L', for numbers - 'N'. Press 'C' for the combination of all the above.\n"
@@ -2522,18 +2522,19 @@ user_lenght = int(input("Please select the lenght of your password:"))
 user_choice = (input("Please select one: symbols - 'S', letters - 'L', numbers - 'N', or combination of them all - 'C':")).lower()
 password = ''
 pass_char = ''
+try:
+    if user_choice == 's':
+      pass_char = symbols
+    elif user_choice == 'l':
+      pass_char = alphabet
+    elif user_choice == 'n':
+      pass_char = numbers
+    elif user_choice == 'c':
+      pass_char = symbols + alphabet + numbers
+    
+    for i in range(user_lenght):
+        password += secrets.choice(pass_char)
+except ValueError:
+    print("Please enter a number")
 
-if user_choice == 's':
-  pass_char = symbols
-elif user_choice == 'l':
-  pass_char = alphabet
-elif user_choice == 'n':
-  pass_char = numbers
-elif user_choice == 'c':
-  pass_char = symbols + alphabet + numbers
-
-for i in range(user_lenght):
-    password += random.choice(pass_char)
-
-
-print(password)
+print(f"Your password is {password}")
