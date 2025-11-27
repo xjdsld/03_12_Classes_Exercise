@@ -10,9 +10,9 @@ class Post(Mail_Method):
   def mail(self, address):
     print(f"You're sending a letter to {address}")
 
-class Pigeon(Mail_Method):
+class Drone_delivery(Mail_Method):
   def mail(self, address):
-    print(f"You're sending a letter with a pigeon to {address}")
+    print(f"You're sending a letter with a drone to {address}")
 
 
 def process_mail(method:Mail_Method, address):
@@ -22,4 +22,4 @@ address = 'generalmailbox@gmail.com'
 
 process_mail(Email(), address)
 process_mail(Post(), address)
-process_mail(Pigeon(), address)
+process_mail(Drone_delivery(), address)
