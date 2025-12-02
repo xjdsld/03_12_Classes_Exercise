@@ -2503,38 +2503,884 @@
 # #         except ZeroDivisionError:
 # #             print('Division by zero is not allowed!') 
 
+# import secrets
 
-import secrets
+# welcome_word = "Welcome to the random password generator. You can select the lenght and the type of charachers used. If you want to use only symbols for your password - press 'S', if you want to use only letters - press 'L', for numbers - 'N'. Press 'C' for the combination of all the above.\n"
 
+# print(welcome_word)
 
-welcome_word = "Welcome to the random password generator. You can select the lenght and the type of charachers used. If you want to use only symbols for your password - press 'S', if you want to use only letters - press 'L', for numbers - 'N'. Press 'C' for the combination of all the above.\n"
+# try: 
+#     user_length = int(input("Please select the lenght of your password:"))
+#     user_choice = (input("Please select one: symbols - 'S', letters - 'L', numbers - 'N', or combination of them all - 'C':")).lower()
 
-print(welcome_word)
+# except ValueError:
+#     print("Please enter a number")
+# except IndexError:
+#     print("Please enter a letter")
+# except NameError:
+#   print("Please enter a number")
 
-
-symbols = '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-
-alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-numbers = "0123456789"
-
-try:
-    user_lenght = int(input("Please select the lenght of your password:"))
-    user_choice = (input("Please select one: symbols - 'S', letters - 'L', numbers - 'N', or combination of them all - 'C':")).lower()
-    password = ''
-    pass_char = ''
-    if user_choice == 's':
-      pass_char = symbols
-    elif user_choice == 'l':
-      pass_char = alphabet
-    elif user_choice == 'n':
-      pass_char = numbers
-    elif user_choice == 'c':
-      pass_char = symbols + alphabet + numbers
+# def pw_gen(user_length, user_choice):
+#     symbols = '!\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
     
-    for i in range(user_lenght):
-        password += secrets.choice(pass_char)
-        print(f"Your password is {password}")
-except ValueError:
-    print("Please enter a number")
+#     alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    
+#     numbers = "0123456789"
 
+#     password = ''
+#     pass_char = ''
+#     if user_choice == 's':
+#       pass_char = symbols
+#     elif user_choice == 'l':
+#       pass_char = alphabet
+#     elif user_choice == 'n':
+#       pass_char = numbers
+#     elif user_choice == 'c':
+#       pass_char = symbols + alphabet + numbers
+#     else:
+#       raise ValueError
+    
+#     for i in range(user_length):
+#         password += secrets.choice(pass_char)
+#     print(f"Your password is: {password}")
+    
+# pw_gen(user_length, user_choice)
+
+# ===========================OBJECT ORIENTED PROGRAMMING AND CLASSES=====================
+# class Car:
+#   kol = 4
+#   color = ''
+#   driver_seat = 1
+#   passanger_seat = 3
+#   seats = driver_seat + passanger_seat
+#   toral_capcity = driver_seat + passanger_seat
+#   engine_type = ''
+#   safety_features = ['ari bag', 'seat belt']
+#   drive = ['front', 'rear', '4WD']
+#   transmission = ['manual', 'CVT']
+#   add_features = ['rardio', 'A/C', 'cruise control']
+#   fuel_consumption = range(0, 20)
+  
+
+# car2 = Car()
+# car2.color = 'white'
+# car2.drive = Car.drive[0]
+# car2.transmission = Car.transmission[1]
+# car2.safety_features = Car.safety_features[1]
+
+
+# print(car2.color, Car.drive[1], Car.add_features, Car.seats, car2.transmission, car2.safety_features)
+
+# class Car:
+#     name = ''
+#     brand = ''
+#     def __init__(self, user_name, user_brand):
+#         self.name = user_name
+#         self.brand = user_brand
+
+
+# car1 = Car('LX', 'Lexus', 'black')
+# print(car1.brand)
+# print(car1.name)
+#
+# car1.brand = 'BMW'
+#
+# print(car1.brand)
+# print(car1.name)
+#
+# car1.color_car = 'red'
+
+# car1 = Car(input('name: '), input('brand: '), int(input('color: ')))
+# print(car1.brand)
+# print(car1.name)
+# print(car1.color_car)
+
+# class Car:
+#   def __init__(self, transmission, drive, add_features, safety_features,
+#                fuel_consumption, fuel_type, total_capacity,
+#                color, brand, model):
+#       self.transmission = transmission
+#       self.drive = drive
+#       self.add_features = add_features
+#       self.safety_features = safety_features
+#       self.fuel_consumption = fuel_consumption
+#       self.fuel_type = fuel_type
+#       self.total_capacity = total_capacity
+#       self.color = color
+#       self.brand = brand
+#       self.model = model
+
+
+# # --- Ask user for all needed data ---
+# user_car = Car(
+#   transmission=input("transmission: "),
+#   drive=input("drive: "),
+#   add_features=input("add features: "),
+#   safety_features=input("safety features: "),
+#   fuel_consumption=int(input("fuel consumption: ")),
+#   fuel_type=input("fuel type: "),
+#   total_capacity=int(input("total capacity: ")),
+#   color=input("color: "),
+#   brand=input("brand: "),
+#   model=input("model: ")
+# )
+
+# print(user_car.__dict__)
+
+
+# class Car:
+#   def __init__(self, transmission, drive, add_features, safety_features, fuel_consumption, fuel_type, total_capacity, color, brand, model):
+#     self.transmission = transmission
+#     self.drive = drive
+#     self.add_features = add_features
+#     self.safety_features = safety_features
+#     self.fuel_consumption = fuel_consumption
+#     self.fuel_type = fuel_consumption
+#     self.total_capacity = total_capacity
+#     self.brand = brand
+#     self.model = model
+
+# user_car = Car(input('transmission: '),input("drive: "), input("add features: "), input("safety features: "), int(input('fuel: ')), input("fuel type: "), int(input("total capaity: ")), input('color'), input("brand: "), input("model: "))
+
+# import random
+
+# class BankAccount:
+#   def __init__(self, name, balance=0):
+#       self.name = name
+#       self.balance = balance
+
+#   def deposit(self, amount):
+#       self.balance += amount
+#       return self.balance
+    
+#   def withdraw(self, amount):
+#     self.balance -= amount
+#     return self.balance 
+
+#   def info(self):
+#       print(f'Name: {self.name}, Balance: {self.balance}')
+
+# ba1 = BankAccount('User 1', 100)
+# ba1.info()
+
+# ba1.deposit(amount = float(input("Enter the amount u want to deposit:")))
+# ba1.withdraw( amount = float(input('Enter the amount u want to withdraw:')))
+# ba1.deposit(amount = random.randint(0, 10000000))
+
+# ba1.info()
+
+# class Animal:
+#   def __init__(self, name):
+#       self.name = name
+
+#   def speak(self):
+#       return '...'
+    
+#   def eat(self):
+#       return '...'
+
+#   def sleep(self):
+#       return '...'
+
+# class Dog(Animal):
+#   def speak(self):
+#       return 'гав'
+#   def eat(self):
+#     return'dog food'
+#   def sleep(self):
+#     return 'night'
+
+# class Cat(Animal):
+#   def speak(self):
+#       return 'мяу'
+#   def eat(self):
+#       return 'cat food'
+#   def sleep(self):
+#     return 'all the time'
+    
+# class Snake(Animal):
+#   def speak(self):
+#     return 'ШШШШШШ'
+#   def eat(self):
+#     return 'mice'
+#   def sleep(self):
+#     return 'day'
+
+# class Cow(Animal):
+#   def speak(self):
+#     return 'Мууу'
+#   def eat(self):
+#     return 'grass'
+#   def sleep(self):
+#     return 'night'
+
+# class Owl(Animal):
+#   def speak(self):
+#     return 'Уууу'
+#   def eat(self):
+#     return 'bugs'
+#   def sleep(self):
+#     return 'day'
+
+# animals = [Dog('Шарик'), Cat('Cat'), Snake('Snake'), Cow('COw'), Owl('Owl')]
+# for animal in animals:
+#     print(animal.name, ':', animal.speak(), animal.eat(), animal.sleep())
+
+
+# animal = Animal('Animal')
+# print(animal.speak())
+
+# cat1 = Cat('cat1')
+# print(cat1.speak())
+
+# dog1 = Dog('dog1')
+# print(dog1.speak())
+
+# class Flyer:
+#   def action(self):
+#       print("Flying")
+
+# class Swimmer:
+#   def action(self):
+#       print("Swimming")
+
+# class Duck(Flyer, Swimmer):
+#   def action(self):
+#       Flyer.action(self)
+#       Swimmer.action(self)
+#       print('Утка умеет и плавать и летать')
+
+
+# d = Duck()
+# print(d.action())
+
+
+# class Basics:
+#   def roof(self):
+#     print("Roof constructed")
+#   def foundation(self):
+#     print('FOundation built')
+#   def pipes(self):
+#     print("Pipes laid")
+#   def walls(self):
+#     print('Wals added')
+
+# class Additionals:
+#   def water(self):
+#     print("water connected")
+#   def electricity(self):
+#     print('power supplied')
+#   def heating(self):
+#     print('Heating connected')
+
+# class Dacha:
+#   def construcing_dacha(self):
+#      Basics.roof(self)
+#      Basics.foundation(self)
+#      Basics.walls(self)
+#      print('Dachs has foundation, walls, and roof')
+
+# class Apartment_building:
+#   def construcing_apartment_building(self):
+#    Basics.roof(self)
+#    Basics.foundation(self)
+#    Basics.walls(self)
+#    Additionals.water(self)
+#    Additionals.electricity(self)
+#    print('Apartment building has foundation, walls, and roof + water and electircity')
+
+# d = Dacha()
+# print(d.construcing_dacha())
+
+# a = Apartment_building()
+# print(a.construcing_apartment_building())
+
+# # V2============================================================================
+
+# class Basics:
+#   def roof(self):
+#       print("Roof constructed")
+#   def foundation(self):
+#       print("Foundation built")
+#   def pipes(self):
+#       print("Pipes laid")
+#   def walls(self):
+#       print("Walls added")
+
+# class Additionals:
+#   def water(self):
+#       print("Water connected")
+#   def electricity(self):
+#       print("Power supplied")
+#   def heating(self):
+#       print("Heating connected")
+
+
+# class Dacha(Basics):
+#   def constructing_dacha(self):
+#       self.foundation()
+#       self.walls()
+#       self.roof()
+#       print("Dacha is finished!")
+
+
+# class Apartment_building(Basics, Additionals):
+#   def constructing_apartment_building(self):
+#       self.foundation()
+#       self.walls()
+#       self.roof()
+#       self.water()
+#       self.electricity()
+#       print("Apartment building is finished!")
+
+
+# d = Dacha()
+# d.constructing_dacha()
+
+# a = Apartment_building()
+# a.constructing_apartment_building()
+
+
+# # class A:
+# #     def __init__(self):
+# #         print('class A')
+# #
+# # class B:
+# #     def __init__(self):
+# #         print('class B')
+# #
+# # class C(A,B):
+# #     def __init__(self):
+# #         super().__init__()
+# #         print('class C')
+# #
+# # c=C()
+
+# class A:
+#     def __init__(self):
+#         print('class A')
+
+# class B:
+#     def __init__(self):
+#         print('class B')
+
+# class C(A,B):
+#     def __init__(self):
+#         A.__init__(self)
+#         B.__init__(self)
+#         print('class C')
+
+# c=C()
+
+# class Student:
+#   def lessons_schedule(self):
+#     with open('schedule.txt', 'r') as file:
+#       schedule = file.read()
+#       print(schedule)
+
+#   def average_grade(self):
+#     with open('grades.txt', 'r') as file:
+#       grades = file.read()
+
+#       grades_list = []
+
+#       tmp = ''
+
+#       for i in grades:
+#           if i.isdigit():
+#               tmp += i  
+#           else:
+#               if tmp:
+#                   grades_list.append(int(tmp))
+#                   tmp = ''
+
+#       if tmp:
+#           grades_list.append(int(tmp))
+
+#       total = 0
+
+#       for i in grades_list:
+#         total += i
+
+#       average = 0
+#       average = total / len(grades_list)
+#       print(average)
+#       return average
+
+
+# student = Student()
+# student.lessons_schedule()
+# print("=================================")
+
+
+# class Stipendia(Student):
+#   def if_stipendia(self, average):
+#     max = 12
+#     base = 1000
+#     coefficient = average / max
+#     average = 0
+   
+#     stipendia = base * coefficient
+
+#     print(stipendia)
+
+
+# student_stipend = Stipendia()
+# student_average = student_stipend.average_grade() 
+# student_stipend.if_stipendia(student_average)
+
+  
+  
+# import random
+
+# class Skins:
+#   def __init__(self):
+#     self.user_symbol = '[X]'
+#     self.bot_symbol = '[O]'
+
+# class Players:
+#   def __init__(self, skins):
+#     self.skins = skins
+   
+  
+#   def bot_move(self, field):
+#     while True:
+#         bot_x = random.randint(0, 2)
+#         bot_y = random.randint(0, 2)
+#         if field[bot_x][bot_y] == '[_]':
+#             field[bot_x][bot_y] = self.skins.bot_symbol
+#             break
+          
+#   def user_move(self, field):
+#     while True:
+#         user_x = int(input('Enter the x (0-2): '))
+#         user_y = int(input('Enter the y (0-2): '))
+
+#         if not (0 <= user_x <= 2 and 0 <= user_y <= 2):
+#             print('!')
+#             continue
+
+#         if field[user_x][user_y] != '[_]':
+#             print('!')
+#             continue  
+
+#         field[user_x][user_y] = self.skins.user_symbol
+#         break
+
+
+# class Game:
+
+#   def __init__(self, skins):
+#     self.skins = skins
+#     self.cell = '[_]'
+#     self.field = []
+    
+#   def create_field(self):
+#       for a in range(3):              
+#           self.field.append([])            
+#           for b in range(3):
+#              self.field[a].append(self.cell) 
+  
+#   def show_field(self):
+#       for row in self.field:
+#           for cell in row:
+#               print(cell, end='')
+#           print()
+  
+#   def winner(self):
+#       options = {
+#                   'r1': [self.field[0][0], self.field[0][1], self.field[0][2]],
+#                   'r2': [self.field[1][0], self.field[1][1], self.field[1][2]],
+#                   'r3': [self.field[2][0], self.field[2][1], self.field[2][2]],
+#                   'c1': [self.field[0][0], self.field[1][0], self.field[2][0]],
+#                   'c2': [self.field[0][1], self.field[1][1], self.field[2][1]],
+#                   'c3': [self.field[0][2], self.field[1][2], self.field[2][2]],
+#                   'd1': [self.field[0][0], self.field[1][1], self.field[2][2]],
+#                   'd2': [self.field[0][2], self.field[1][1], self.field[2][0]]
+#               }
+#       for i in options:
+#           row = options[i]
+#           if row == [self.skins.bot_symbol, self.skins.bot_symbol, self.skins.bot_symbol]:
+#               print('Bot wins')
+#               return True
+#           elif row == [self.skins.user_symbol, self.skins.user_symbol, self.skins.user_symbol]:
+#               print('User wins')
+#               return True
+  
+#       for row in self.field:
+#           for i in row:
+#               if i == "[_]":
+#                return False
+  
+#       print("It's a tie!")
+#       return True
+  
+#   def save_game(self):
+#     user_save = input("If you want to save the save press 'S', if no press 'N':").lower()
+#     if user_save == 's':
+#         with open('game_save.txt', 'w') as file:
+#             for i in self.field:
+#                 for j in i:
+#                     file.write(j)  
+#                 file.write('\n')        
+#         print("Game saved")
+#         self.load_game()
+  
+#         with open('game_save.txt', 'r') as file:
+#          game_save = file.read()
+#         print(game_save)  
+  
+#     elif user_save == 'n':
+#         self.show_field()
+#     else:
+#         print('!')
+#         self.save_game()
+  
+#   def load_game(self):
+#     saved_field = [['[_]','[_]','[_]'],
+#       ['[_]','[_]','[_]'],
+#       ['[_]','[_]','[_]']]
+  
+#     user_again = input("If you want to load the save press 'L':").lower()
+#     if user_again == 'l':
+#       with open('game_save.txt', 'r') as file:
+#         for i in range(3):
+#           for j in range(3):
+#             cell = ''
+#             for k in range(3):
+#                 cell += file.read(1)
+#             saved_field[i][j] = cell
+#           file.read(1)   
+
+# skins = Skins()
+# game = Game(skins)
+# players = Players(skins)
+# game.create_field()
+# while True:
+#   players.user_move(game.field)
+#   game.show_field()
+#   if game.winner():
+#       break
+
+#   players.bot_move(game.field)
+#   game.show_field()
+#   if game.winner():
+#       break
+
+#   game.save_game()
+
+# class CM:
+#   def __init__(self):
+#       self.water_lvl = 100 # public
+#       self._temp = 0 # protected
+#       self.__key = 'qwe' # private
+
+
+#   def start(self): # public
+#       print('Go')
+#       self._water()
+#       self.__diagnostic()
+
+#   def _water(self): # protected
+#       self._temp = 90
+#       print('_temp:', self._temp)
+
+#   def __diagnostic(self): # private
+#       print('start diagnostic')
+
+
+
+# m1 = CM()
+# #
+# # print(m1.water_lvl)
+# # m1.start()
+
+# # m1._water()
+# # m1.__diagnostic()
+# # m1._CM__diagnostic()
+
+# class University:
+#   def __init__(self):
+#     self.students = []
+#     self.grade =  []
+  
+#   def _student_list(self): 
+#     self.students = ['student 1', 'student 2', 'etc']
+  
+#   def stundet_number(self):
+#     self.number_student = len(self.students)
+
+#   def __student_grades(self, student):
+#     if student not in self.students:
+#       print("Not a student")
+#     else:
+#       print(f"The student's grade is {self.grade}")
+      
+    # class PayMethod:
+    #   def pay(self, amount):
+    #       raise NotImplementedError('Нужно переопределить')
+
+    # class CreditCard(PayMethod):
+    #   def pay(self, amount):
+    #       print(f'Оплата кредитной картой {amount}')
+
+    # class Cash(PayMethod):
+    #   def pay(self, amount):
+    #       print(f'Оплата наличкой {amount}')
+
+    # class Crypto(PayMethod):
+    #   def pay(self, amount):
+    #       print(f'Оплата криптой {amount}')
+
+
+
+    # def process_pay(method: PayMethod, amount):
+    #   method.pay(amount)
+
+
+    # process_pay(CreditCard(), 10)
+    # process_pay(Cash(), 100)
+    # process_pay(Crypto(), 1000)
+    
+# import random
+
+# class Call_Method:
+#   def call(self, number):
+#    raise NotImplementedError('!')
+
+# class Mobile(Call_Method):
+#   def call(self, number):
+#       print(f"You're calling to {number}")
+
+# class IP(Call_Method):
+#   def call(self, number):
+#       print(f"You're calling to {number}")
+
+# class Wire_Phone(Call_Method):
+#   def call(self, number):
+#       print(f"You're calling to {number}")
+  
+    
+# def process_call(method: Call_Method, number):
+#   method.call(number)
+
+# def radom_number():
+#   number = random.randint(1000000, 99999999)
+#   return number
+
+
+# process_call(Mobile(), radom_number())
+# process_call(IP(), radom_number())
+# process_call(Wire_Phone(), radom_number())
+
+# 12.01.2025 ABSTRACT METHOD, ABC LIBRARY ================================================
+# class Transport:
+#     def move(self):
+#         raise NotImplementedError('Нужно переопределить')
+#     
+# class Car(Transport):
+#     def move(self):
+#         print('Transport Car')
+# 
+# class Bus(Transport):
+#     def move(self):
+#         print('Transport Bus')
+#         
+# class Ship(Transport):
+#     def move(self):
+#         print('Transport Ship')
+#         
+# # car = Car()
+# # bus = Bus()
+# # ship = Ship()
+# # 
+# # transport_list = [car,bus,ship]
+# 
+# transport_list = [Car(),Bus(),Ship()]
+# 
+# for item_transport in transport_list:
+#     item_transport.move()
+
+# from abc import ABC, abstractmethod
+
+# class Transport(ABC):
+#     @abstractmethod
+#     def move(self):
+#         pass
+#         # raise NotImplementedError('Нужно переопределить')
+
+# class Car(Transport):
+#     def move(self):
+#         print('Transport Car')
+
+
+# class Bus(Transport):
+#     def move(self):
+#         print('Transport Bus')
+
+
+# class Ship(Transport):
+#     def move(self):
+#         print('Transport Ship')
+
+
+# # car = Car()
+# # bus = Bus()
+# # ship = Ship()
+# # 
+# # transport_list = [car,bus,ship]
+
+# transport_list = [Car(), Bus(), Ship()]
+
+# for item_transport in transport_list:
+#     item_transport.move()
+
+# from abc import ABC, abstractmethod
+
+# class Smart_HOME(ABC):
+
+#     @abstractmethod
+#     def CCTV(self):
+#         pass
+
+#     def automatic_lights(self):
+#         pass
+
+#     def fire_alarm(self):
+#         pass
+    
+#     def water_leak_sensor(self):
+#         pass
+    
+# class Bedroom(Smart_HOME):
+#     def CCTV(self):
+#         print("CCTV added ")
+        
+#     def automatic_lights(self):
+#         print("Automatic lights added ")
+
+#     def fire_alarm(self):
+#         print("Fire alarm lights added ")
+
+# class Livingroom(Smart_HOME):
+#     def CCTV(self):
+#         print("CCTV added")
+
+#     def automatic_lights(self):
+#         print("Automatic lights added ")
+
+#     def fire_alarm(self):
+#         print("Fire alarm lights added ")
+
+# class Kitchen(Smart_HOME):
+#     def CCTV(self):
+#         print("CCTV addedю")
+
+#     def fire_alarm(self):
+#         print("Fire alarm lights added ")
+
+#     def automatic_lights(self):
+#         print("Automatic lights added ")
+    
+# class Bathroom(Smart_HOME):
+#     def CCTV(self):
+#         print("CCTV added")
+
+#     def automatic_lights(self):
+#         print("Automatic lights added ")
+
+#     def fire_alarm(self):
+#         print("Fire alarm lights added ")
+
+#     def water_leak_sensor(self):
+#         print("water leak sensor added to the bathon")
+
+
+from abc import ABC, abstractmethod
+import random
+
+class HERO(ABC):      
+
+    def __init__(self):
+        self.name = ''
+        self.hero_money = random.randint(1, 100)
+        self.hero_strength = 0
+        self.hero_dextrexity = 0
+        self.hero_magic_skills = 0
+
+    def hero_name(self):
+        self.name = input('Please enter the hero name')        
+
+    @abstractmethod
+    def hero_stats(self):
+        pass
+
+class Strengh(HERO):
+    def hero_stats(self):
+        self.hero_strenght = random.randint(0,100)
+        print(f"{self.name}'s strenght is {self.hero_strenght}")
+        return self.hero_strenght
+
+class Dextrexity(HERO):
+    def hero_stats(self):
+        self.hero_dextrexity = random.randint(0,100)
+        print(f"Your Hero's dextrexity is {self.hero_dextrexity}")
+
+
+class Magic_skills(HERO):
+    def hero_stats(self):
+        self.hero_magic_skills = random.randint(0,100)
+        print(f"{self.name}'s magic skills level is { self.hero_magic_skills}")
+
+
+class Magic(HERO):
+    def magic_power(self, hero):
+        hero.magic_skills += 15
+        print(f"{self.name}'s magic skills were boosted and now are {hero.magic.skills}")
+
+class Items():
+    def sword(self, hero):
+        if hero.hero_money < 10:
+            print("U do not have the necessary amount, return ")
+        else:
+            hero.hero_strenght += 10   
+            hero.hero_money -= 10
+        
+    def mushroom(self, hero):
+        if hero.hero_money < 15:
+            print("U do not have the necessary amount, return ")
+        else:
+            hero.hero_magic_skills += 15  
+            hero.hero_money -= 15
+
+    def flower(self, hero):
+        if hero.hero_money < 30:
+            print("U do not have the necessary amount, return ")
+        else:
+            hero.hero_dextrexity -= 20
+            hero.hero_money -= 30
+
+class Shop(Items):
+    def shoping(self, hero):
+        user_choice_shop = input("Select the item you want to buy: 1- sword (10 coins), 2 - mushroom(15 coins), 3 - flower(30 coins): ")
+        if user_choice_shop == "1":
+            self.sword(hero)
+        elif user_choice_shop == "2":
+            self.mushroom(hero)
+        elif user_choice_shop == "3":
+            self.flower(hero)
+        else:
+            print("Try again")
+
+
+# ==================================================================================
+player_hero = input("Chose the core characteristics of the plaery: 1 - for strenght 2 - for dexterxity, 3 - for magix skills") Strengh()      
+
+player_hero.hero_name()           
+player_hero.hero_stats()          
+
+# ==================================================================================
+bot_class = random.choice([Strengh(), Dextrexity(), Magic_skills()])
+bot_hero = bot_class()
+bot_hero.name = "X"             
+bot_hero.hero_stats()             
